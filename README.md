@@ -1,16 +1,12 @@
 # software_architecture_picker
 
-A new Flutter project.
+## Problem
 
-## Getting Started
+- Many companies/startups usually get stuck in picking the right architecture for their software. 
+- Picking the right architecture for your software in the early stages before development saves your company and development team from future technical debt.
+- When you pick the right architecture for your software, you prevent things like overengineering or underengineering and promote things like faster time-to-market.
 
-This project is a starting point for a Flutter application.
+## Proposed Solution: Software Architecture Picker
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Helps your company/startup identify the right architecture for your software.
+- Software Architecture Picker lets you select characteristics such as cost, scalability, performance, etc., that are crucial for your software and provides the right architecture for your software needs.
