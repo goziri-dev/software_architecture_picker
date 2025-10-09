@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:forui/theme.dart';
-import 'package:software_architecture_picker/core/view/media_util.dart';
+import 'package:software_architecture_picker/core/view/utils/media_util.dart';
 
 class TypographyUtil {
   static TextStyle header(BuildContext context) {

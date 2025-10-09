@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:forui/forui.dart';
-import 'package:software_architecture_picker/core/view/typography_util.dart';
+import 'package:software_architecture_picker/core/view/utils/typography_util.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
