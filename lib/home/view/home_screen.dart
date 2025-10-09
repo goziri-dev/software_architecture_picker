@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:forui/forui.dart';
-import 'package:software_architecture_picker/core/view/media_util.dart';
+import 'package:software_architecture_picker/core/view/typography_util.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -14,10 +14,7 @@ class HomeScreen extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 30),
             child: Text(
               "Architecture Characteristics",
-              style: TextStyle(
-                fontSize: MediaUtil.scaleText(context, 0.05),
-                fontWeight: FontWeight.bold,
-              ),
+              style: TypographyUtil.header(context),
             ),
           ),
         ),
@@ -28,7 +25,7 @@ class HomeScreen extends StatelessWidget {
           children: [
             Text(
               "Select your software needs.",
-              style: TextStyle(fontSize: MediaUtil.scaleText(context, 0.02)),
+              style: TypographyUtil.body(context),
             ),
           ],
         ),
