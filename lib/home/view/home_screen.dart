@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:forui/forui.dart';
+import 'package:software_architecture_picker/core/view/media_util.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    var screenWidth = MediaQuery.sizeOf(context).width;
-
     return FScaffold(
       header: FHeader(
         title: Center(
@@ -16,7 +15,7 @@ class HomeScreen extends StatelessWidget {
             child: Text(
               "Architecture Characteristics",
               style: TextStyle(
-                fontSize: screenWidth * 0.05,
+                fontSize: MediaUtil.scaleText(context, 0.05),
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -26,7 +25,12 @@ class HomeScreen extends StatelessWidget {
       child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [Text("Select your software needs.")],
+          children: [
+            Text(
+              "Select your software needs.",
+              style: TextStyle(fontSize: MediaUtil.scaleText(context, 0.02)),
+            ),
+          ],
         ),
       ),
     );
