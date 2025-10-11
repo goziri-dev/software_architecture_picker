@@ -1,0 +1,96 @@
+import 'package:flutter/material.dart';
+import 'package:forui/forui.dart';
+import 'package:go_router/go_router.dart';
+import 'package:software_architecture_picker/core/view/utils/media_util.dart';
+import 'package:software_architecture_picker/core/view/utils/typography_util.dart';
+import 'package:software_architecture_picker/features/home/custom/architecture_selector.dart';
+
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen>
+    with SingleTickerProviderStateMixin {
+  late final _characteristicsController = FMultiSelectController<String>(
+    vsync: this,
+  );
+
+  final _formKey = GlobalKey<FormState>();
+
+  @override
+  void dispose() {
+    _characteristicsController.dispose();
+    super.dispose();
+  }
+
+  String? _validateCharacteristics(Set<String> characteristics) {
+    if (characteristics.isEmpty) {
+      return "Please select departments";
+    }
+    return null;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    var multiSelectWidth = MediaUtil.scale(context, 0.25);
+    return FScaffold(
+      header: FHeader(
+        title: Center(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 30),
+            child: Text(
+              "Architecture Characteristics",
+              style: TypographyUtil.header(context),
+            ),
+          ),
+        ),
+      ),
+      child: Center(
+        child: Form(
+          key: _formKey,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Expanded(child: SizedBox(height: 20)),
+              SizedBox(
+                width: multiSelectWidth,
+                child: ArchitectureSelector(
+                  controller: _characteristicsController,
+                  hint: const Text("Select your software needs"),
+                  validator: _validateCharacteristics,
+                  popoverWidth: multiSelectWidth,
+                ),
+              ),
+              const Expanded(child: SizedBox(height: 20)),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(30.0),
+                    child: SizedBox(
+                      width: multiSelectWidth / 2,
+                      child: FButton(
+                        onPress: () {
+                          if (_formKey.currentState!.validate()) {
+                            context.push(
+                              "/suggestions",
+                              extra: _characteristicsController.value,
+                            );
+                          }
+                        },
+                        child: const Text("Next"),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
