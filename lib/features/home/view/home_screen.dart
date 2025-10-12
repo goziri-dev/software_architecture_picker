@@ -79,6 +79,7 @@ class _HomeScreenState extends State<HomeScreen>
                     child: SizedBox(
                       width: multiSelectWidth / 3,
                       child: FButton(
+                        mainAxisSize: MainAxisSize.max,
                         onPress: () {
                           if (_formKey.currentState!.validate()) {
                             context.push(

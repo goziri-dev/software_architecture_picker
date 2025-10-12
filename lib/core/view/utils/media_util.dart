@@ -7,12 +7,13 @@ class MediaUtil {
   }
 
   static bool isMobile(BuildContext context) {
-    return MediaQuery.sizeOf(context).width < 600;
+    return MediaQuery.sizeOf(context).width < 900;
   }
 
   static double scaleToDevice(BuildContext context, double value) {
     return isMobile(context)
-        ? scale(context, 1 - value)
+        ? MediaQuery.sizeOf(context)
+              .width //scale(context, 1 - value)
         : scale(context, value);
   }
 
