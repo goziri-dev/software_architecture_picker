@@ -36,64 +36,66 @@ class _HomeScreenState extends State<HomeScreen>
   @override
   Widget build(BuildContext context) {
     var multiSelectWidth = MediaUtil.scaleToDevice(context, 0.25);
-    return FScaffold(
-      header: SafeArea(
-        child: FHeader(
-          title: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 30),
-            child: Text(
-              "Architecture Characteristics",
-              style: TypographyUtil.header(context),
+    return SafeArea(
+      child: FScaffold(
+        header: SafeArea(
+          child: FHeader(
+            title: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 30),
+              child: Text(
+                "Architecture Characteristics",
+                style: TypographyUtil.header(context),
+              ),
             ),
           ),
         ),
-      ),
-      child: SafeArea(
-        child: Center(
-          child: Form(
-            key: _formKey,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+        child: SafeArea(
+          child: Center(
+            child: Form(
+              key: _formKey,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
 
-              children: [
-                const Expanded(child: SizedBox(height: 20)),
-                SizedBox(
-                  width: multiSelectWidth,
-                  child: ArchitectureSelector(
-                    controller: _characteristicsController,
-                    hint: const Text("Select your software needs"),
-                    validator: _validateCharacteristics,
-                    popoverWidth: multiSelectWidth,
+                children: [
+                  const Expanded(child: SizedBox(height: 20)),
+                  SizedBox(
+                    width: multiSelectWidth,
+                    child: ArchitectureSelector(
+                      controller: _characteristicsController,
+                      hint: const Text("Select your software needs"),
+                      validator: _validateCharacteristics,
+                      popoverWidth: multiSelectWidth,
+                    ),
                   ),
-                ),
-                const Expanded(child: SizedBox(height: 20)),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 10.0,
-                        vertical: 10,
-                      ),
-                      child: SizedBox(
-                        width: multiSelectWidth / 3,
-                        child: FButton(
-                          mainAxisSize: MainAxisSize.max,
-                          onPress: () {
-                            if (_formKey.currentState!.validate()) {
-                              context.push(
-                                "/suggestions",
-                                extra: _characteristicsController.value,
-                              );
-                            }
-                          },
-                          child: const Text("Next"),
+                  const Expanded(child: SizedBox(height: 20)),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 10.0,
+                          vertical: 10,
+                        ),
+                        child: SizedBox(
+                          width: multiSelectWidth / 3,
+                          child: FButton(
+                            mainAxisSize: MainAxisSize.max,
+                            onPress: () {
+                              if (_formKey.currentState!.validate()) {
+                                context.push(
+                                  "/suggestions",
+                                  extra: _characteristicsController.value,
+                                );
+                              }
+                            },
+                            child: const Text("Next"),
+                          ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-              ],
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),
