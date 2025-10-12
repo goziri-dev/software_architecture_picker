@@ -35,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen>
 
   @override
   Widget build(BuildContext context) {
-    var multiSelectWidth = MediaUtil.scale(context, 0.25);
+    var multiSelectWidth = MediaUtil.scaleToDevice(context, 0.25);
     return FScaffold(
       header: FHeader(
         title: Center(
@@ -71,7 +71,7 @@ class _HomeScreenState extends State<HomeScreen>
                   Padding(
                     padding: const EdgeInsets.all(30.0),
                     child: SizedBox(
-                      width: multiSelectWidth / 2,
+                      width: multiSelectWidth / 3,
                       child: FButton(
                         onPress: () {
                           if (_formKey.currentState!.validate()) {
