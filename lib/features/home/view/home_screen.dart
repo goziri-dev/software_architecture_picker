@@ -53,6 +53,9 @@ class _HomeScreenState extends State<HomeScreen>
           key: _formKey,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: MediaUtil.isMobile(context)
+                ? CrossAxisAlignment.stretch
+                : CrossAxisAlignment.center,
             children: [
               const Expanded(child: SizedBox(height: 20)),
               SizedBox(
@@ -69,7 +72,10 @@ class _HomeScreenState extends State<HomeScreen>
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.all(30.0),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 10.0,
+                      vertical: 10,
+                    ),
                     child: SizedBox(
                       width: multiSelectWidth / 3,
                       child: FButton(
