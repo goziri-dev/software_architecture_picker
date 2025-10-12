@@ -51,7 +51,7 @@ class _HomeScreenState extends State<HomeScreen>
           key: _formKey,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
+
             children: [
               const Expanded(child: SizedBox(height: 20)),
               SizedBox(
