@@ -38,13 +38,11 @@ class _HomeScreenState extends State<HomeScreen>
     var multiSelectWidth = MediaUtil.scaleToDevice(context, 0.25);
     return FScaffold(
       header: FHeader(
-        title: Center(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 30),
-            child: Text(
-              "Architecture Characteristics",
-              style: TypographyUtil.header(context),
-            ),
+        title: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 30),
+          child: Text(
+            "Architecture Characteristics",
+            style: TypographyUtil.header(context),
           ),
         ),
       ),
@@ -53,9 +51,7 @@ class _HomeScreenState extends State<HomeScreen>
           key: _formKey,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: MediaUtil.isMobile(context)
-                ? CrossAxisAlignment.stretch
-                : CrossAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               const Expanded(child: SizedBox(height: 20)),
               SizedBox(
