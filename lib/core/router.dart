@@ -1,6 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:software_architecture_picker/features/home/view/home_screen.dart';
-import 'package:software_architecture_picker/features/suggestions/screens/suggestions_screen.dart';
+import 'package:software_architecture_picker/features/suggestions/view/suggestions_screen.dart';
 
 final router = GoRouter(
   routes: [

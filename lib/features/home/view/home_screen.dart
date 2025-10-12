@@ -28,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen>
 
   String? _validateCharacteristics(Set<String> characteristics) {
     if (characteristics.isEmpty) {
-      return "Please select departments";
+      return "Please select needs";
     }
     return null;
   }

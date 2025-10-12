@@ -11,6 +11,14 @@ class TypographyUtil {
     return headerStyle;
   }
 
+  static TextStyle medium(BuildContext context) {
+    final typography = context.theme.typography;
+    final mediumStyle = typography.lg.copyWith(
+      fontSize: MediaUtil.scale(context, 0.025),
+    );
+    return mediumStyle;
+  }
+
   static TextStyle body(BuildContext context) {
     final typography = context.theme.typography;
     final bodyStyle = typography.sm.copyWith(
