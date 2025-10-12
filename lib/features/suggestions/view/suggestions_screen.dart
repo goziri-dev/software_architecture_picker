@@ -61,42 +61,44 @@ class _SuggestionsScreenState extends State<SuggestionsScreen> {
           if (!kIsWeb) FHeaderAction.back(onPress: () => context.pop()),
         ],
       ),
-      child: Column(
-        children: [
-          Text(
-            "Suggested Architectures",
-            style: TypographyUtil.header(context),
-          ),
-          const Expanded(child: SizedBox()),
-          Expanded(
-            flex: 3,
-            child: Scrollbar(
-              controller: _scrollController,
-              thumbVisibility: true,
-              child: SingleChildScrollView(
+      child: SafeArea(
+        child: Column(
+          children: [
+            Text(
+              "Suggested Architectures",
+              style: TypographyUtil.header(context),
+            ),
+            const Expanded(child: SizedBox()),
+            Expanded(
+              flex: 3,
+              child: Scrollbar(
                 controller: _scrollController,
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-                    for (var architecture in filteredArchitectures.entries)
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
-                        child: Column(
-                          children: [
-                            SuggestionsDisplay(
-                              architectureName: architecture.key,
-                              architectureCharacteristics: architecture.value,
-                              selectedCharacteristics: widget.data,
-                            ),
-                          ],
+                thumbVisibility: true,
+                child: SingleChildScrollView(
+                  controller: _scrollController,
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      for (var architecture in filteredArchitectures.entries)
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 10),
+                          child: Column(
+                            children: [
+                              SuggestionsDisplay(
+                                architectureName: architecture.key,
+                                architectureCharacteristics: architecture.value,
+                                selectedCharacteristics: widget.data,
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
