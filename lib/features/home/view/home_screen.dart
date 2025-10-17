@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:forui/forui.dart';
 import 'package:go_router/go_router.dart';
+import 'package:aptabase_flutter/aptabase_flutter.dart';
 import 'package:software_architecture_picker/core/view/utils/media_util.dart';
 import 'package:software_architecture_picker/core/view/utils/typography_util.dart';
 import 'package:software_architecture_picker/features/home/custom/architecture_selector.dart';
@@ -82,6 +83,10 @@ class _HomeScreenState extends State<HomeScreen>
                             mainAxisSize: MainAxisSize.max,
                             onPress: () {
                               if (_formKey.currentState!.validate()) {
+                                Aptabase.instance.trackEvent(
+                                  "User_navigated_to_architectures'_page",
+                                  {"source": "home_screen"},
+                                );
                                 context.push(
                                   "/suggestions",
                                   extra: _characteristicsController.value,
