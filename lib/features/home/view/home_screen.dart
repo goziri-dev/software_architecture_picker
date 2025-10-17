@@ -87,7 +87,7 @@ class _HomeScreenState extends State<HomeScreen>
                                   "User_navigated_to_architectures'_page",
                                   {"source": "home_screen"},
                                 );
-                                context.push(
+                                context.go(
                                   "/suggestions",
                                   extra: _characteristicsController.value,
                                 );
